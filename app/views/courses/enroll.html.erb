@@ -1,0 +1,7 @@
+<h2> Enroll Student in <%= @course_to_enroll.name %> </h2>
+
+<%= form_for @course_to_enroll, url: enroll_student_course_path(@course_to_enroll), method: :post do |f| %>
+	<%= f.label :student_id, "Select Student to Enroll:" %>
+    <%= select_tag 'student_id', options_from_collection_for_select(@available_students, 'id', 'name'), prompt: "Select Student" %>
+    <%= f.submit "Enroll Student", class: "btn btn-primary" %>
+<% end %>

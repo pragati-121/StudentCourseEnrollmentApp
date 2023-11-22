@@ -1,0 +1,24 @@
+<h1> Student List Page</h1>
+<table bgcolor="white", border="2">
+	<thead>
+		<th>Student</th>
+		<th>Age</th>
+		<th>Email</th>
+		<th colspan="5"> Actions</th>
+	</thead>
+	<tbody>
+		
+  	<% @students.each do |student| %>
+		<tr>
+		<td><%= student.name %></td>
+		<td><%= student.age %></td>
+		<td><%= student.email %></td>
+		<td><%=  link_to 'Show' ,student_path(student)%></td>
+		<td><%=  link_to 'Delete',  student_path(student), method: :delete, data: {confirm: "Are You Sure?"}%></td>
+		<td><%=  link_to 'Edit', edit_student_path(student) %></td>
+	</tr>
+	<% end %>
+	</tbody>
+</table>
+<%= link_to 'Create New Student', new_student_path %><br>
+<%= link_to 'Back to main menu',  root_path %>

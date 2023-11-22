@@ -1,0 +1,25 @@
+<h1> Course List Page</h1>
+<table bgcolor="white", border="2">
+	<thead>
+		<th>Name</th>
+		<th>Start Date</th>
+		<th>End Date</th>
+		<th colspan="4"> Actions</th>
+	</thead>
+	<tbody>
+		
+  	<% @courses.each do |course| %>
+		<tr>
+		<td><%= course.name %></td>
+		<td><%= course.start_date %></td>
+		<td><%= course.end_date %></td>
+		<td><%=  link_to 'Show' ,course_path(course)%></td>
+		<td><%=  link_to 'Delete',  course_path(course), method: :delete, data: {confirm: "Are You Sure?"}%></td>
+		<td><%=  link_to 'Edit', edit_course_path(course) %></td>
+		<td><%=  link_to 'Enroll', enroll_course_path(course) %></td>
+	</tr>
+	<% end %>
+	</tbody>
+</table>
+<%= link_to 'Create New Course', new_course_path %><br>
+<%= link_to 'Back to main menu', root_path %>

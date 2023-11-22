@@ -1,0 +1,22 @@
+<h1>Edit Course Details</h1>
+<%= form_with model: @course do |form| %>
+  <div>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :start_date %><br>
+    <%= form.date_field :start_date %>
+  </div>
+
+  <div>
+    <%= form.label :end_date %><br>
+    <%= form.date_field :end_date %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
+<%= link_to 'Cancel & Return to Course List' , courses_path %>

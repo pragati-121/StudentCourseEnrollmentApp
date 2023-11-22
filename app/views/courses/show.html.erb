@@ -1,0 +1,13 @@
+<h1> Course Details</h1>
+  <p><strong>Name:</strong><%= @course.name %> </p>
+  <p><strong>Start Date:</strong><%= @course.start_date %></p>
+   <p><strong>End Date:</strong><%= @course.end_date %></p>
+
+   <h2> Students Register for this course</h2>
+  <ol>
+    <% @student_names.each do |student_name| %>
+    <li><%= student_name %></li>
+    <% end %>
+  </ol>
+  
+  <%= link_to 'Back to Course List Page' , courses_path %>

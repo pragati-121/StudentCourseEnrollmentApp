@@ -1,0 +1,13 @@
+<h1> Student Details</h1>
+  <p><strong>Name:</strong><%= @student.name %> </p>
+  <p><strong>Age:</strong><%= @student.age %></p>
+  <p><strong>Email:</strong><%= @student.email %></p>
+
+  <p><strong> Enrolled Courses:</p></strong>
+  <ol>
+    <% @courses_name.each do |course_name| %>
+    <li><%= course_name%></li>
+    <% end %>
+  </ol>
+  
+  <%= link_to 'Back to Student List Page' , students_path %>
