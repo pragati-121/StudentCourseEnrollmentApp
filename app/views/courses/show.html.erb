@@ -3,11 +3,13 @@
   <p><strong>Start Date:</strong><%= @course.start_date %></p>
    <p><strong>End Date:</strong><%= @course.end_date %></p>
 
-   <h2> Students Register for this course</h2>
-  <ol>
-    <% @student_names.each do |student_name| %>
-    <li><%= student_name %></li>
-    <% end %>
-  </ol>
-  
-  <%= link_to 'Back to Course List Page' , courses_path %>
+  <h2> Enrolled Students </h2>
+<ol>
+  <% @course.students.each do |student| %>
+    <li>
+      <%= student.name %> -
+      <%= link_to 'Remove', remove_student_course_path(@course, student), method: :delete, data: { confirm: 'Are you sure to remove student?' } %>
+    </li>
+  <% end %>
+</ol>
+<%= link_to 'Back to Course List' , courses_path %>

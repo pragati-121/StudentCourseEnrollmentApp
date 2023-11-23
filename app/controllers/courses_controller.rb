@@ -26,6 +26,18 @@ class CoursesController < ApplicationController
     redirect_to courses_path
   end
 
+def remove_student
+  @course = Course.find(params[:id])
+  @student_to_remove = @course.students.find(params[:student_id])
+
+  if @course.students.destroy(@student_to_remove)
+    flash[:notice] = "Student removed from the course successfully."
+  else
+    flash[:alert] = "Failed to remove student from the course."
+  end
+  redirect_to course_path(@course)
+end
+
   def new
     @course = Course.new
   end
